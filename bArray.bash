@@ -54,7 +54,7 @@ function length() {
 
 function replace() {
     #get the new item from input
-    local newItem=$(printf "$2\n" | \
+    local newItem=$(echo "$2" | \
         sed 's|^-||' | \
         sed 's|-$||')
     #get the desired index
@@ -98,7 +98,7 @@ function remove() {
 
 function append() {
     #get the new item
-    local newItem=$(printf "$2\n" | \
+    local newItem=$(echo "${2}" | \
         sed 's|^-||' | \
         sed 's|-$||')
     #newline list of items then
