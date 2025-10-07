@@ -18,7 +18,7 @@ I felt like writing my own implementation of arrays in Bash
 ## Usage:
 > [!NOTE]
 > bArray is non-zero based (`1` is the first item).
-- Formatting
+### Formatting
   ```
   ["foo","bar","baz",]
   ```
@@ -26,7 +26,7 @@ I felt like writing my own implementation of arrays in Bash
   ```shell
   echo '["foo","bar","baz",]'
   ```
-- Listing an array
+### Listing an array
   ```shell
   bArray list '["foo","bar","baz",]'
   ```
@@ -36,7 +36,7 @@ I felt like writing my own implementation of arrays in Bash
   bar
   baz
   ```
-- Getting the length of an array
+### Getting the length of an array
   ```shell
   bArray length '["foo","bar","baz",]'
   ```
@@ -44,7 +44,7 @@ I felt like writing my own implementation of arrays in Bash
   ```
   3
   ```
-- Appending to an array
+### Appending to an array
   ```shell
   bArray append '-qux-' '["foo","bar","baz",]'
   ```
@@ -52,7 +52,7 @@ I felt like writing my own implementation of arrays in Bash
   ```
   ["foo","bar","baz","qux",]
   ```
-- Removing from an array
+### Removing from an array
   If you want to remove the 2nd item:
   ```shell
   bArray remove-2- '["foo","bar","baz",]'
@@ -61,7 +61,7 @@ I felt like writing my own implementation of arrays in Bash
   ```
   '["foo","baz",]'
   ```
-- Getting a value from an array
+### Getting a value from an array
   If you want to get the second value:
   ```shell
   bArray get-2- '["foo","bar","baz",]'
@@ -70,7 +70,7 @@ I felt like writing my own implementation of arrays in Bash
   ```
   bar
   ```
-- Replacing a value
+### Replacing a value
   If you wan to replace the 2nd value
   ```shell
   bArray replace-2- '-qux-' '["foo","bar","baz",]'
