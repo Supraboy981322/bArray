@@ -4,6 +4,12 @@ I felt like writing my own implementation of arrays in Bash
 
 ---
 
+## Dependencies
+- Bash
+- The GNU coreutils package (gnu-toolset)
+
+---
+
 ## Recommended Install Method:
 
 1) Download `bArray.bash`
