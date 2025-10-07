@@ -6,9 +6,13 @@ I felt like writing my own implementation of arrays in Bash
    ```shell
    curl -O https://raw.githubusercontent.com/Supraboy981322/bArray/main/bArray.bash
    ```
-2) Move it to a directory of your choice (ex: `/etc/scripts/`) and rename it to `bArray` (remove `.bash` from the end)
+2) Move it to a directory of your choice (ex: `/etc/scripts/`, this directory may require `su` permissions) and rename it to `bArray` (remove `.bash` from the end)
    ```shell
    mv bArray.bash /etc/scripts/bArray
+   ```
+3) Make it executable (may require `su` permissions)
+   ```shell
+   chmod a+x /etc/scripts/bArray
    ```
 3) Add your chosen directory to your system-wide `$PATH` (replace `/etc/scripts` with your directory and `/etc/bash.bashrc` with your shell's equivalent)
    ```shell
