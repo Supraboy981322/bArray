@@ -16,7 +16,7 @@ I felt like writing my own implementation of arrays in Bash
    ```
 3) Add your chosen directory to your system-wide `$PATH` (replace `/etc/scripts` with your directory and `/etc/bash.bashrc` with your shell's equivalent)
    ```shell
-   echo '$PATH=$PATH:/etc/scripts' >> /etc/bash.bashrc
+   echo 'PATH=$PATH:/etc/scripts' >> /etc/bash.bashrc
    ```
 ---
 ## Usage:
