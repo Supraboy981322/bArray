@@ -15,7 +15,7 @@ for arg in $@; do
             item="$arg"
             ;;
         *)
-            if echo "$arg" | grep -E '\[".*",' | grep -qE '",]'; then
+            if printf "$arg" | grep -E '\[".*",' | grep -qE '",]'; then
                 #get the array
                 array="$arg"
             fi
@@ -37,7 +37,7 @@ function reconstruct() {
 function list() {
     #print the items in the array
     #  as a newline separated list
-    echo "$1" | \
+    printf "$1\n" | \
         sed 's|^\["||g' | \
         sed 's|",]$||g' | \
         sed 's|",|\n|g' | \
@@ -54,11 +54,11 @@ function length() {
 
 function replace() {
     #get the new item from input
-    local newItem=$(echo $2 | \
+    local newItem=$(printf "$2\n" | \
         sed 's|^-||' | \
         sed 's|-$||')
     #get the desired index
-    local index=$(echo "$1" | \
+    local index=$(printf "$1\n" | \
         sed 's|replace-||' | \
         sed 's|-$||')
     #construct new list with item
@@ -71,7 +71,7 @@ function replace() {
 
 function get() {
     #get the desired index
-    local index=$(echo "$1" | \
+    local index=$(printf "$1\n" | \
         sed 's|get-||' | \
         sed 's|-$||')
     #newline list of items then
@@ -83,7 +83,7 @@ function get() {
 
 function remove() {
     #get the desired index
-    local index=$(echo "$1" | \
+    local index=$(printf "$1\n" | \
         sed 's|remove-||' | \
         sed 's|-$||')
     #get the value of line from index
@@ -98,20 +98,20 @@ function remove() {
 
 function append() {
     #get the new item
-    local newItem=$(echo "$2" | \
+    local newItem=$(printf "$2\n" | \
         sed 's|^-||' | \
         sed 's|-$||')
     #newline list of items then
-    #  echo the new item at the end
-    local newList=$(list "$1" && echo "$newItem")
+    #  print the new item at the end
+    local newList=$(list "$1" && printf "$newItem\n")
     #turn back into array
     reconstruct "$newList"
 }
 
 #if the array isn't provided or is empty
 if [[ -z $array ]]; then
-    echo "no array detected"
-    echo "valid format: '[\"foo\",]'"
+    printf "no array detected\n"
+    printf "valid format: '[\"foo\",]'\n"
 else #otherwise...
     case "$operation" in
         "length") #if length, run length fn
@@ -134,7 +134,7 @@ else #otherwise...
             ;;
         *) #if all else fails, then the user did something
            #  wrong (probably, maybe, possibly, hopefully)
-            echo "invalid operation"
+            printf "invalid operation\n"
             ;;
     esac
 fi
